@@ -28,4 +28,4 @@ jobs:
         QDRANT_URL: ${{ secrets.QDRANT_URL }}
         QDRANT_KEY: ${{ secrets.QDRANT_KEY }}
       run: |
-        streamlit run themepark_to_vectorDB_Only_Chat_UI.py
+        streamlit run themepark_to_vectorDB_Only_Chat_UI.py --server.headless true
