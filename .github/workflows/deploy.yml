@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: production  # Add your environment name here
     
     steps:
       - name: Check out code
@@ -16,13 +17,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8'
+          python-version: '3.8'  # Use desired Python version
 
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
 
-      - name: Verify environment variables
+      - name: Verify Secrets Are Set
         run: |
           if [ -z "$OPENAI_API_KEY" ]; then echo "OPENAI_API_KEY is not set"; exit 1; fi
           if [ -z "$QDRANT_URL" ]; then echo "QDRANT_URL is not set"; exit 1; fi
@@ -38,4 +39,4 @@ jobs:
           QDRANT_URL: ${{ secrets.QDRANT_URL }}
           QDRANT_KEY: ${{ secrets.QDRANT_KEY }}
         run: |
-          streamlit run themepark_to_vectorDB_Only_Chat_UI.py --server.headless true
+          streamlit run themepark_to_vectorDB_Only_Chat_UI.py
