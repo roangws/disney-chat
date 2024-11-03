@@ -3,29 +3,29 @@ name: Deploy Streamlit App
 on:
   push:
     branches:
-      - main  # Trigger deployment on pushes to main branch
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - name: Check out code
-        uses: actions/checkout@v2
+    - name: Check out the repository
+      uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'  # Use desired Python version
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
 
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
 
-      - name: Run Streamlit app
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          QDRANT_URL: ${{ secrets.QDRANT_URL }}
-          QDRANT_KEY: ${{ secrets.QDRANT_KEY }}
-        run: |
-          streamlit run themepark_to_vectorDB_Only_Chat_UI.py
+    - name: Run Streamlit
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        QDRANT_URL: ${{ secrets.QDRANT_URL }}
+        QDRANT_KEY: ${{ secrets.QDRANT_KEY }}
+      run: |
+        streamlit run themepark_to_vectorDB_Only_Chat_UI.py
