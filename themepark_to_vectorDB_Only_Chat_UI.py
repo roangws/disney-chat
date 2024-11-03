@@ -37,6 +37,10 @@ embeddings = OpenAIEmbeddings(openai_api_key=os.getenv("OPENAI_API_KEY"))
 qdrant_api_key = os.getenv("QDRANT_KEY")
 qdrant_url_key = os.getenv("QDRANT_URL")
 
+
+if not openai_api_key or not qdrant_api_key or not qdrant_url_key:
+    raise ValueError("One or more required environment variables are not set.")
+
 #choosing the model
 chat = ChatOpenAI(
     model='gpt-3.5-turbo'
