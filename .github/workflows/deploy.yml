@@ -42,6 +42,9 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           QDRANT_URL: ${{ secrets.QDRANT_URL }}
           QDRANT_KEY: ${{ secrets.QDRANT_KEY }}
+
+      - name: Debug Environment Variables
+        run: env
           
       - name: Run Streamlit app
         env:
