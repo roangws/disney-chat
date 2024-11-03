@@ -33,13 +33,20 @@ from langchain.chains import create_history_aware_retriever, create_retrieval_ch
 from langchain.chains.combine_documents import create_stuff_documents_chain
 
 # Initialize OpenAI Embeddings
-embeddings = OpenAIEmbeddings(openai_api_key=os.getenv("OPENAI_API_KEY"))
+openai_api_key = os.getenv("OPENAI_API_KEY")
 qdrant_api_key = os.getenv("QDRANT_KEY")
 qdrant_url_key = os.getenv("QDRANT_URL")
 
 
 if not openai_api_key or not qdrant_api_key or not qdrant_url_key:
     raise ValueError("One or more required environment variables are not set.")
+
+# Initialize OpenAI Embeddings
+embeddings = OpenAIEmbeddings(openai_api_key=os.getenv("OPENAI_API_KEY"))
+qdrant_api_key = os.getenv("QDRANT_KEY")
+qdrant_url_key = os.getenv("QDRANT_URL")
+
+
 
 #choosing the model
 chat = ChatOpenAI(
