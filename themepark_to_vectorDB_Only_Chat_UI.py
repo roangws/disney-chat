@@ -38,7 +38,11 @@ qdrant_api_key = os.getenv("QDRANT_KEY")
 qdrant_url_key = os.getenv("QDRANT_URL")
 
 
-if not openai_api_key or not qdrant_api_key or not qdrant_url_key:
+if not openai_key or not qdrant_url or not qdrant_key:
+    print("Environment variables not fully loaded. Debug info:")
+    print(f"OPENAI_API_KEY found: {'Yes' if openai_key else 'No'}")
+    print(f"QDRANT_URL found: {'Yes' if qdrant_url else 'No'}")
+    print(f"QDRANT_KEY found: {'Yes' if qdrant_key else 'No'}")
     raise ValueError("One or more required environment variables are not set.")
 
 # Initialize OpenAI Embeddings
