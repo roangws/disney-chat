@@ -23,18 +23,14 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Debug Environment Variables
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          QDRANT_URL: ${{ secrets.QDRANT_URL }}
-          QDRANT_KEY: ${{ secrets.QDRANT_KEY }}
-        run: |
-          python -c "import os; print('OPENAI_API_KEY:', os.getenv('OPENAI_API_KEY')); print('QDRANT_URL:', os.getenv('QDRANT_URL')); print('QDRANT_KEY:', os.getenv('QDRANT_KEY'))"
-
-      - name: Run Streamlit app
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          QDRANT_URL: ${{ secrets.QDRANT_URL }}
-          QDRANT_KEY: ${{ secrets.QDRANT_KEY }}
-        run: |
-          streamlit run themepark_to_vectorDB_Only_Chat_UI.py
+       - name: Run Streamlit app
+         env:
+           MY_OPENAI_KEY: ${{ secrets.OPENAI_API_KEY }}
+           MY_QDRANT_URL: ${{ secrets.QDRANT_URL }}
+           MY_QDRANT_KEY: ${{ secrets.QDRANT_KEY }}
+         run: |
+           echo "Checking environment variables..."
+           echo "MY_OPENAI_KEY is ${#MY_OPENAI_KEY} characters long"
+           echo "MY_QDRANT_URL is ${#MY_QDRANT_URL} characters long"
+           echo "MY_QDRANT_KEY is ${#MY_QDRANT_KEY} characters long"
+           streamlit run themepark_to_vectorDB_Only_Chat_UI.py
