@@ -32,21 +32,9 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 
-# Initialize OpenAI Embeddings
-openai_api_key = os.getenv("OPENAI_API_KEY")
-qdrant_api_key = os.getenv("QDRANT_KEY")
-qdrant_url_key = os.getenv("QDRANT_URL")
-
-
-if not openai_key or not qdrant_url or not qdrant_key:
-    print("Environment variables not fully loaded. Debug info:")
-    print(f"OPENAI_API_KEY found: {'Yes' if openai_key else 'No'}")
-    print(f"QDRANT_URL found: {'Yes' if qdrant_url else 'No'}")
-    print(f"QDRANT_KEY found: {'Yes' if qdrant_key else 'No'}")
-    raise ValueError("One or more required environment variables are not set.")
 
 # Initialize OpenAI Embeddings
-embeddings = OpenAIEmbeddings(openai_api_key=os.getenv("OPENAI_API_KEY"))
+embeddings = OpenAIEmbeddings(openai_api_key=os.environ["OPENAI_API_KEY"])
 qdrant_api_key = os.getenv("QDRANT_KEY")
 qdrant_url_key = os.getenv("QDRANT_URL")
 
