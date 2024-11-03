@@ -3,13 +3,13 @@ name: Deploy Streamlit App
 on:
   push:
     branches:
-      - main  # Trigger deployment on pushes to main branch
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: production  # Add your environment name here
-    
+    environment: production  # Use your desired environment
+
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -17,22 +17,20 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8'  # Use desired Python version
+          python-version: '3.8'
 
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          
-      - name: Debug Secrets
-        run: |
-          echo "OPENAI_API_KEY is ${#OPENAI_API_KEY} characters long"
-          echo "QDRANT_URL is ${#QDRANT_URL} characters long"
-          echo "QDRANT_KEY is ${#QDRANT_KEY} characters long"
+
+      - name: Debug Environment Variables
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           QDRANT_URL: ${{ secrets.QDRANT_URL }}
           QDRANT_KEY: ${{ secrets.QDRANT_KEY }}
-          
+        run: |
+          python -c "import os; print('OPENAI_API_KEY:', os.getenv('OPENAI_API_KEY')); print('QDRANT_URL:', os.getenv('QDRANT_URL')); print('QDRANT_KEY:', os.getenv('QDRANT_KEY'))"
+
       - name: Run Streamlit app
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
