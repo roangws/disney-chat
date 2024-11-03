@@ -32,22 +32,18 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 
-# Debug environment variables
-api_key = os.getenv("OPENAI_API_KEY")
-print("API Key found:", "Yes" if api_key else "No")
-
+# Retrieve the OpenAI API key
+api_key = os.getenv("MY_OPENAI_KEY")
 if not api_key:
-    raise ValueError("The environment variable OPENAI_API_KEY is not set. Please set it in GitHub Secrets or locally.")
+    raise ValueError("The environment variable MY_OPENAI_KEY is not set. Please set it in GitHub Secrets or locally.")
 
 # Initialize OpenAI Embeddings only if API key is available
 embeddings = OpenAIEmbeddings(openai_api_key=api_key)
 
-# Initialize OpenAI Embeddings environ
-#embeddings = OpenAIEmbeddings(openai_api_key=os.environ["OPENAI_API_KEY"])
-qdrant_api_key = os.getenv("QDRANT_KEY")
-qdrant_url_key = os.getenv("QDRANT_URL")
-
-
+qdrant_url = os.getenv("MY_QDRANT_URL")
+qdrant_key = os.getenv("MY_QDRANT_KEY")
+if not qdrant_url or not qdrant_key:
+    raise ValueError("Qdrant environment variables are not set. Please set them in GitHub Secrets or locally.")
 
 #choosing the model
 chat = ChatOpenAI(
