@@ -32,10 +32,14 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 
+api_key = os.getenv("MY_OPENAI_KEY") or "default-fake-key-for-testing"
+if api_key == "default-fake-key-for-testing":
+    print("Warning: Using default key. Check environment variables.")
+
 # Retrieve the OpenAI API key
-api_key = os.getenv("MY_OPENAI_KEY")
-if not api_key:
-    raise ValueError("The environment variable MY_OPENAI_KEY is not set. Please set it in GitHub Secrets or locally.")
+#api_key = os.getenv("MY_OPENAI_KEY")
+#if not api_key:
+#    raise ValueError("The environment variable MY_OPENAI_KEY is not set. Please set it in GitHub Secrets or locally.")
 
 # Initialize OpenAI Embeddings only if API key is available
 embeddings = OpenAIEmbeddings(openai_api_key=api_key)
