@@ -32,8 +32,10 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 
-# Retrieve the OpenAI API key with error handling
-api_key = os.environ.get("OPENAI_API_KEY")
+# Debug environment variables
+api_key = os.getenv("OPENAI_API_KEY")
+print("API Key found:", "Yes" if api_key else "No")
+
 if not api_key:
     raise ValueError("The environment variable OPENAI_API_KEY is not set. Please set it in GitHub Secrets or locally.")
 
