@@ -32,10 +32,6 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 
-
-# Load OpenAI Key
-load_dotenv('./.env')
-
 # Initialize OpenAI Embeddings
 embeddings = OpenAIEmbeddings(openai_api_key=os.getenv("OPENAI_API_KEY"))
 qdrant_api_key = os.getenv("QDRANT_KEY")
