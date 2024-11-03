@@ -32,7 +32,17 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           QDRANT_URL: ${{ secrets.QDRANT_URL }}
           QDRANT_KEY: ${{ secrets.QDRANT_KEY }}
-
+          
+      - name: Debug Secrets
+        run: |
+          echo "OPENAI_API_KEY is ${#OPENAI_API_KEY} characters long"
+          echo "QDRANT_URL is ${#QDRANT_URL} characters long"
+          echo "QDRANT_KEY is ${#QDRANT_KEY} characters long"
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          QDRANT_URL: ${{ secrets.QDRANT_URL }}
+          QDRANT_KEY: ${{ secrets.QDRANT_KEY }}
+          
       - name: Run Streamlit app
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
