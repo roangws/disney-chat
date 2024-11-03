@@ -3,29 +3,39 @@ name: Deploy Streamlit App
 on:
   push:
     branches:
-      - main
+      - main  # Trigger deployment on pushes to main branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
-    - name: Check out the repository
-      uses: actions/checkout@v2
+      - name: Check out code
+        uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.8'
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
 
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
 
-    - name: Run Streamlit
-      env:
-        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        QDRANT_URL: ${{ secrets.QDRANT_URL }}
-        QDRANT_KEY: ${{ secrets.QDRANT_KEY }}
-      run: |
-        streamlit run themepark_to_vectorDB_Only_Chat_UI.py --server.headless true
+      - name: Verify environment variables
+        run: |
+          if [ -z "$OPENAI_API_KEY" ]; then echo "OPENAI_API_KEY is not set"; exit 1; fi
+          if [ -z "$QDRANT_URL" ]; then echo "QDRANT_URL is not set"; exit 1; fi
+          if [ -z "$QDRANT_KEY" ]; then echo "QDRANT_KEY is not set"; exit 1; fi
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          QDRANT_URL: ${{ secrets.QDRANT_URL }}
+          QDRANT_KEY: ${{ secrets.QDRANT_KEY }}
+
+      - name: Run Streamlit app
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          QDRANT_URL: ${{ secrets.QDRANT_URL }}
+          QDRANT_KEY: ${{ secrets.QDRANT_KEY }}
+        run: |
+          streamlit run themepark_to_vectorDB_Only_Chat_UI.py --server.headless true
