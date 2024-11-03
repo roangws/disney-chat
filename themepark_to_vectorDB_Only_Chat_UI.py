@@ -33,7 +33,7 @@ from langchain.chains import create_history_aware_retriever, create_retrieval_ch
 from langchain.chains.combine_documents import create_stuff_documents_chain
 
 
-# Initialize OpenAI Embeddings
+# Initialize OpenAI Embeddings environ
 embeddings = OpenAIEmbeddings(openai_api_key=os.environ["OPENAI_API_KEY"])
 qdrant_api_key = os.getenv("QDRANT_KEY")
 qdrant_url_key = os.getenv("QDRANT_URL")
