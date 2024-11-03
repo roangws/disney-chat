@@ -23,14 +23,14 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-       - name: Run Streamlit app
-         env:
-           MY_OPENAI_KEY: ${{ secrets.OPENAI_API_KEY }}
-           MY_QDRANT_URL: ${{ secrets.QDRANT_URL }}
-           MY_QDRANT_KEY: ${{ secrets.QDRANT_KEY }}
-         run: |
-           echo "Checking environment variables..."
-           echo "MY_OPENAI_KEY is ${#MY_OPENAI_KEY} characters long"
-           echo "MY_QDRANT_URL is ${#MY_QDRANT_URL} characters long"
-           echo "MY_QDRANT_KEY is ${#MY_QDRANT_KEY} characters long"
-           streamlit run themepark_to_vectorDB_Only_Chat_UI.py
+      - name: Run Streamlit app  # Corrected indentation here
+        env:
+          MY_OPENAI_KEY: ${{ secrets.OPENAI_API_KEY }}
+          MY_QDRANT_URL: ${{ secrets.QDRANT_URL }}
+          MY_QDRANT_KEY: ${{ secrets.QDRANT_KEY }}
+        run: |
+          echo "Checking environment variables..."
+          echo "MY_OPENAI_KEY is ${#MY_OPENAI_KEY} characters long"
+          echo "MY_QDRANT_URL is ${#MY_QDRANT_URL} characters long"
+          echo "MY_QDRANT_KEY is ${#MY_QDRANT_KEY} characters long"
+          streamlit run themepark_to_vectorDB_Only_Chat_UI.py
