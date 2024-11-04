@@ -39,7 +39,7 @@ if api_key == "default-fake-key-for-testing":
 # Retrieve the OpenAI API key
 #api_key = os.getenv("MY_OPENAI_KEY")
 #if not api_key:
-#    raise ValueError("The environment variable MY_OPENAI_KEY is not set. Please set it in GitHub Secrets or locally.")
+#    raise ValueError("The environment variable MY_OPENAI_KEY is not set. Please set it in GitHub Secrets or locally.23
 
 # Initialize OpenAI Embeddings only if API key is available
 embeddings = OpenAIEmbeddings(openai_api_key=api_key)
