@@ -160,7 +160,7 @@ def deepeval_test(user_query,final_response):
 st.set_page_config(page_title="Chat with Disney", page_icon="🤖")
 st.title("Chat with Disney")
 
-st.image("chat.png", caption="Welcome to the Disney Chat! Explore live data for Disney theme park attractions! Get current wait times, find out which rides are most exciting,  and ask questions about the fun-filled experiences awaiting you. Type your query below to start your adventure!", use_column_width=True)
+st.image("chat.png", caption="<p>Welcome to the Disney Chat! Explore Disney and global theme park attractions, including wait times, top rides, and more! Note: Live data is currently paused, but you can access all available parks and attractions in this <a href="https://docs.google.com/spreadsheets/d/1TSIFqfeS6_dQHWvAkgazUOmQ0e72dAeE/edit?usp=sharing&ouid=113797643410883981985&rtpof=true&sd=true" target="_blank">spreadsheet</a>. Type your query below to begin your adventure!</p>", use_column_width=True)
 
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
