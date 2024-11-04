@@ -14,6 +14,6 @@ I fine-tune Qdrant responses by adding context around user questions, enabling m
 
 I export the responses to evaluate their quality, refining them to sound more natural and human-like. I focus on clarity and conversational flow, with iterative testing to ensure that responses are accurate and consistently meet our quality standards.
 
-In the last phase, Through DeepEval, I can measure the accuracy of responses and detect any deviations from factual information. 
+In the last phase, Through DeepEval, I can measure the accuracy of responses and detect any deviations from factual information.
 
 
