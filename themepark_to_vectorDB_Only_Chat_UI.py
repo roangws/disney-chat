@@ -1,13 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# ## Rag
-#  
-#     
-
-# In[29]:
-
-
 from qdrant_client import QdrantClient
 from qdrant_client.http.models import Distance, VectorParams
 from langchain.vectorstores import Qdrant
@@ -164,7 +154,7 @@ st.markdown("""
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-st.info("Please enter your question, you can try: What is the waiting time for Xcelerator The Ride and Jurassic World Adventure? each one is more fun? ... or what's the time for Orion? Is it fun?")
+st.info("You can try typing: 'What is the wait time for Xcelerator The Ride and Jurassic World Adventure? Which one is more fun?' ... or 'What's the wait time for Orion? Is it cool?'")
     
 # Capture and process user input
 user_query = st.chat_input("Type your message here...")
@@ -176,8 +166,9 @@ if user_query:
     # Generate and append AI response
     final_response = get_response(user_query)
     st.session_state.chat_history.append(AIMessage(content=final_response))
-    #deepeval_result = str(deepeval_test(user_query, final_response))
-    #st.session_state.chat_history.append(AIMessage(content=deepeval_result))
+    # Here to exevute the test
+    deepeval_result = str(deepeval_test(user_query, final_response))
+    st.session_state.chat_history.append(AIMessage(content=deepeval_result))
 
 # Display the conversation history using st.chat_message for better visuals
 for message in st.session_state.chat_history:
