@@ -148,13 +148,13 @@ st.title("Chat with Disney")
 
 st.image("chat.png", use_column_width=True)
 st.markdown("""
-<p>Welcome to the Disney Chat! Explore Disney and global theme park attractions, including wait times, top rides, and more! Note: Live data is currently paused, but you can access all available parks and attractions in this <a href="https://docs.google.com/spreadsheets/d/1TSIFqfeS6_dQHWvAkgazUOmQ0e72dAeE/edit?usp=sharing&ouid=113797643410883981985&rtpof=true&sd=true" target="_blank">spreadsheet</a>. Type your query below to begin your adventure!</p>
+<p>Welcome to the Disney Chat! Explore Disney and global theme park attractions, including wait times, top rides, and more! Note: Live data is currently paused, but you can access all available parks and attractions in this <a href="https://docs.google.com/spreadsheets/d/1TSIFqfeS6_dQHWvAkgazUOmQ0e72dAeE/edit?usp=sharing&ouid=113797643410883981985&rtpof=true&sd=true" target="_blank">spreadsheet</a>. Type your query below to begin your adventure! </ br>  <i>Note: The average waiting time response is 10 seconds. The DeepEval Test Results are enabled for Relevancy Score and Faithfulness Score</i></p>
 """, unsafe_allow_html=True)
 
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-st.info("You can try typing: 'What is the wait time for Xcelerator The Ride and Jurassic World Adventure? Which one is more fun?' ... or 'What's the wait time for Orion? Is it cool?'")
+st.info("You can try typing: 'What is the wait time for Xcelerator The Ride and Jurassic World Adventure? Which one is more fun?' ... or 'What's the wait time for Orion? Is it cool?'... or 'Between Raging Spirits and Skyhawk, which one has a shorter wait? which one is more intense?'")
     
 # Capture and process user input
 user_query = st.chat_input("Type your message here...")
