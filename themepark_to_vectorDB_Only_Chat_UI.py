@@ -32,32 +32,31 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 
+# Load OpenAI API key and Qdrant settings
 api_key = os.getenv("MY_OPENAI_KEY") or "default-fake-key-for-testing"
 if api_key == "default-fake-key-for-testing":
     print("Warning: Using default key. Check environment variables.")
-
-# Retrieve the OpenAI API key
-#api_key = os.getenv("MY_OPENAI_KEY")
-#if not api_key:
-#    raise ValueError("The environment variable MY_OPENAI_KEY is not set. Please set it in GitHub Secrets or locally.23
-
-# Initialize OpenAI Embeddings only if API key is available
-embeddings = OpenAIEmbeddings(openai_api_key=api_key)
+else:
+    # Set to the OpenAI environment variable expected by the library
+    os.environ["OPENAI_API_KEY"] = api_key
 
 qdrant_url = os.getenv("MY_QDRANT_URL")
 qdrant_key = os.getenv("MY_QDRANT_KEY")
+
+# Ensure Qdrant variables are set
 if not qdrant_url or not qdrant_key:
     raise ValueError("Qdrant environment variables are not set. Please set them in GitHub Secrets or locally.")
 
-#choosing the model
-chat = ChatOpenAI(
-    model='gpt-3.5-turbo'
-)
+# Initialize OpenAI Embeddings
+embeddings = OpenAIEmbeddings(openai_api_key=api_key)
+
+# Initialize OpenAI model
+chat = ChatOpenAI(model='gpt-3.5-turbo')
 
 # Initialize the Qdrant client
 qdrant_client = QdrantClient(
-    url=qdrant_url_key, 
-    api_key=qdrant_api_key
+    url=qdrant_url, 
+    api_key=qdrant_key
 )
 
 # Initialize the Qdrant vector store
