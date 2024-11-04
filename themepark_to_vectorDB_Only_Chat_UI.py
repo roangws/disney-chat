@@ -162,13 +162,17 @@ user_query = st.chat_input("Type your message here...")
 if user_query:
     # Append user query to chat history
     st.session_state.chat_history.append(HumanMessage(content=user_query))
-    
-    # Generate and append AI response
-    final_response = get_response(user_query)
-    st.session_state.chat_history.append(AIMessage(content=final_response))
-    # Here to exevute the test
-    deepeval_result = str(deepeval_test(user_query, final_response))
-    st.session_state.chat_history.append(AIMessage(content=deepeval_result))
+
+
+    # Show a loading spinner while generating the response
+    with st.spinner("Working on it..."):
+        # Generate and append AI response
+        final_response = get_response(user_query)
+        st.session_state.chat_history.append(AIMessage(content=final_response))
+        
+        # Here to execute the test
+        deepeval_result = str(deepeval_test(user_query, final_response))
+        st.session_state.chat_history.append(AIMessage(content=deepeval_result))
 
 # Display the conversation history using st.chat_message for better visuals
 for message in st.session_state.chat_history:
