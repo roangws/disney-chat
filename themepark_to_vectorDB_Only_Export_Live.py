@@ -1,11 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Sucesfully exporting the live data to excel + updatintqdrant
-
-# In[ ]:
-
-
 import requests
 import pandas as pd
 from qdrant_client import QdrantClient
@@ -19,20 +11,28 @@ from datetime import datetime
 import pytz 
 import os
 
-# Load OpenAI Key
-load_dotenv('./.env')
+# Load OpenAI API key and Qdrant settings
+api_key = os.getenv("MY_OPENAI_KEY") or "default-fake-key-for-testing"
+if api_key == "default-fake-key-for-testing":
+    print("Warning: Using default key. Check environment variables.")
+else:
+    # Set to the OpenAI environment variable expected by the library
+    os.environ["OPENAI_API_KEY"] = api_key
 
-#connect with openai 
-embeddings = OpenAIEmbeddings(openai_api_key=os.getenv("OPENAI_API_KEY"))
+qdrant_url = os.getenv("MY_QDRANT_URL")
+qdrant_key = os.getenv("MY_QDRANT_KEY")
 
-# Initialize 
-qdrant_api_key = os.getenv("QDRANT_KEY")
-qdrant_url_key = os.getenv("QDRANT_URL")
+# Ensure Qdrant variables are set
+if not qdrant_url or not qdrant_key:
+    raise ValueError("Qdrant environment variables are not set. Please set them in GitHub Secrets or locally.")
+
+# Initialize OpenAI Embeddings
+embeddings = OpenAIEmbeddings(openai_api_key=api_key)
 
 # Initialize the Qdrant client
 qdrant_client = QdrantClient(
-    url=qdrant_url_key, 
-    api_key=qdrant_api_key
+    url=qdrant_url, 
+    api_key=qdrant_key
 )
 
 # Define the base URL for the API
