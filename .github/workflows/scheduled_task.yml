@@ -2,7 +2,7 @@ name: Scheduled Task
 
 on:
   schedule:
-    - cron: "*/15 * * * *"  # Runs every minute for testing "*/1 * * * *"   # - cron: '0 */2 * * *'  # Runs every 2 hours. Uncomment to use this schedule.
+    - cron: "*/9 * * * *"  # Runs every minute for testing "*/1 * * * *"   # - cron: '0 */2 * * *'  # Runs every 2 hours. Uncomment to use this schedule.
   workflow_dispatch:      # Adds a button in the Actions tab for manual run
   
 jobs:
