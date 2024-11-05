@@ -148,7 +148,7 @@ st.title("Chat with Disney")
 
 st.image("chat.png", use_column_width=True)
 st.markdown("""
-<p>Welcome to the Disney Chat! Explore Disney and global theme park attractions, including wait times, top rides, and more. <i> Note: Live data is paused, but you can access all parks and attractions in this <a href="https://docs.google.com/spreadsheets/d/1TSIFqfeS6_dQHWvAkgazUOmQ0e72dAeE/edit?usp=sharing&ouid=113797643410883981985&rtpof=true&sd=true" target="_blank">Spreadsheet</a>. Average response time is 10 seconds. DeepEval Scores for Relevancy and Faithfulness are enabled.</i></p>
+<p>Welcome to the Disney Chat! Explore Disney and global theme park attractions wait times <i> Note: All parks and attractions <a href="https://docs.google.com/spreadsheets/d/1TSIFqfeS6_dQHWvAkgazUOmQ0e72dAeE/edit?usp=sharing&ouid=113797643410883981985&rtpof=true&sd=true" target="_blank">List</a>. Average response time is 10 seconds. DeepEval Scores for Relevancy score is enabled.</i></p>
 """, unsafe_allow_html=True)
 
 if "chat_history" not in st.session_state:
