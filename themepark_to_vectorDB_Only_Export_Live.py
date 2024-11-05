@@ -113,9 +113,9 @@ def sent_to_vector(all_attractions):
     qdrant = Qdrant.from_documents(
         documents=documents,
         embedding=embeddings,
-        url=qdrant_url_key,
+        url=qdrant_url,
         collection_name="chatbot",
-        api_key=qdrant_api_key
+        api_key=qdrant_key
     )
     print(f"Sucess sent to vector")
     
