@@ -2,8 +2,8 @@ name: Scheduled Task
 
 on:
   schedule:
-     - cron: "*/1 * * * *" 
-    #- cron: '0 */2 * * *'  # Runs every 2 hours. Adjust as needed.
+    - cron: "*/1 * * * *"  # Runs every minute for testing
+    # - cron: '0 */2 * * *'  # Runs every 2 hours. Uncomment to use this schedule.
 
 jobs:
   run-script:
