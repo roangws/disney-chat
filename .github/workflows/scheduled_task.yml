@@ -2,7 +2,8 @@ name: Scheduled Task
 
 on:
   schedule:
-    - cron: '0 */2 * * *'  # Runs every 2 hours. Adjust as needed.
+     - cron: "*/1 * * * *" 
+    #- cron: '0 */2 * * *'  # Runs every 2 hours. Adjust as needed.
 
 jobs:
   run-script:
@@ -31,4 +32,4 @@ jobs:
           echo "MY_OPENAI_KEY is ${#MY_OPENAI_KEY} characters long"
           echo "MY_QDRANT_URL is ${#MY_QDRANT_URL} characters long"
           echo "MY_QDRANT_KEY is ${#MY_QDRANT_KEY} characters long"
-          streamlit run themepark_to_vectorDB_Only_Chat_UI.py
+          python themepark_to_vectorDB_Only_Export_Live.py
