@@ -83,7 +83,7 @@ def get_response(query: str):
     # Construct the augmented prompt with the extracted knowledge
     augment_prompt = f"""Using the contexts below, answer the query in two parts:
 
-    First, answer the question about wait times, could be one or multiple atraction. Then answer any other followup question. Add a cool sentence to make it engaging.
+    First, answer the question about wait times, add the Last Live Update using the PT, Then answer the Human any other question. White a cool sentence
 
     Contexts:
     {source_knowledge}
