@@ -2,9 +2,9 @@ name: Scheduled Task
 
 on:
   schedule:
-    - cron: "*/1 * * * *"  # Runs every minute for testing
-    # - cron: '0 */2 * * *'  # Runs every 2 hours. Uncomment to use this schedule.
-
+    - cron: "*/15 * * * *"  # Runs every minute for testing "*/1 * * * *"   # - cron: '0 */2 * * *'  # Runs every 2 hours. Uncomment to use this schedule.
+  workflow_dispatch:      # Adds a button in the Actions tab for manual run
+  
 jobs:
   run-script:
     runs-on: ubuntu-latest
