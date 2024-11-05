@@ -1,19 +1,46 @@
-# Retrieval-Augmented Generation (RAG) Chatbot with DeepEval Evaluation – Disney Chat
+# 🎢 Retrieval-Augmented Generation (RAG) Chatbot with DeepEval Evaluation – Disney Chat 🧑‍🚀
 
-Welcome to the Disney Chatbot! Explore live data for Disney and others theme park attractions! 
+![Disney Chatbot](https://github.com/roangws/disney-chat/blob/main/chat.png)
 
-I created a Retrieval-Augmented Generation (RAG) chatbot to provide human responses based on real-time data from worldwide theme parks API. The RAG chatbot uses Langchain and integrates with a vector database on Qdrant to enable retrieval and generation capabilities, uses the OpenAI GPT-3.5-turbo model, and I evaluate the results using DeepEval Evaluation. 
+Welcome to the **Disney Chatbot**! Interact with live data for Disney and other global theme park attractions! 🌍
 
-Started by Connecting to the ThemeParks API to get data on theme parks and their respective attractions’ waiting line times. Each theme park has a unique ID that serves as a key for accessing multiple attraction details. Once the attraction data is retrieved, it is exported to an Excel file for easier visualization for this example. 
+---
 
-On Qdrant vector database, I clear any previous data and insert the new data. As this is an initial test, I’m manually deleting and uploading the new data. In a full implementation, functions would be added to detect updates automatically. Ideally, this data would be permanently stored for analysis and deeper research, like this. I used Qdrant because it’s an open source, has more content on the community, and fits better for this project, Research Matrix here.
+## 📌 Project Overview
 
-I integrate OpenAI and Langchain to help create an interface that can interact with the Qdrant vector database. Langchain makes the connection between OpenAI’s API and the vector database easier, allowing more classes and functions.
+This project showcases a **Retrieval-Augmented Generation (RAG) chatbot** designed to generate human-like responses based on real-time data from worldwide theme parks. The chatbot uses:
+- **Langchain** and **Qdrant** for vector-based data retrieval and generation.
+- **OpenAI GPT-3.5-turbo** for natural language generation.
+- **DeepEval Evaluation** to assess response quality, relevance, and factuality.
 
-I fine-tune Qdrant responses by adding context around user questions, enabling more informative answers while minimizing hallucinations. This approach structures responses to feel more conversational and aligned with user expectations.
+## 🚀 Implementation Steps
 
-I export the responses to evaluate their quality, refining them to sound more natural and human-like. I focus on clarity and conversational flow, with iterative testing to ensure that responses are accurate and consistently meet our quality standards.
+### 1. Data Collection from ThemeParks API 🌐
+Started by connecting to the **ThemeParks API** to gather data on various theme parks and their attraction wait times. Each park has a unique ID for accessing detailed attraction data, which is exported to an Excel file for easier visualization.
 
-In the last phase, Through DeepEval, I can measure the accuracy of responses and detect any deviations from factual information.
+### 2. Data Integration with Qdrant 🗄️
+The retrieved data is stored in the **Qdrant** vector database. Any pre-existing data is cleared and replaced with the latest data for testing purposes. In a full implementation, functions would be created to detect and handle data updates automatically. **Qdrant** was chosen for its open-source model and active community, making it ideal for this project.
 
+### 3. Generative AI with OpenAI & Langchain 🤖
+Using **Langchain**, I seamlessly connect **OpenAI’s API** with Qdrant, enabling complex functions and classes. This setup allows for smoother data retrieval and more effective RAG-based conversations.
 
+### 4. Enhancing Responses with Context 📝
+I refined responses by embedding contextual information around user queries. This process enhances answer quality, creating conversational, informative responses while reducing potential AI hallucinations.
+
+### 5. Response Quality Assessment with DeepEval ✅
+In the final stage, **DeepEval** is used to measure response accuracy, relevancy, and detect any factual inaccuracies. Responses are iteratively adjusted to sound more human-like, prioritizing clarity and conversational tone.
+
+---
+
+## ⚙️ Future Directions
+This chatbot architecture provides a foundation for future enhancements, such as:
+- Predictive routing and user journey optimization.
+- Advanced wait time forecasting based on live data.
+
+---
+
+🎉 **Thank you for exploring this project!** Feel free to dive into the code and reach out with any questions.
+
+--- 
+
+> **Icons** sourced from [Font Awesome](https://fontawesome.com/) and [Material Icons](https://material.io/resources/icons/)
