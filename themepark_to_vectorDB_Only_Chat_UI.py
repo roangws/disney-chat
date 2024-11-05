@@ -76,7 +76,7 @@ def get_response(query: str):
 
     # Format the source knowledge to include attraction names and wait times
     source_knowledge = "\n".join([
-        f"Attraction: {x.page_content}, Wait Time: {format_wait_time(x.metadata.get('wait_time'))}"
+        f"Attraction: {x.page_content}, Wait Time: {format_wait_time(x.metadata.get('wait_time'))}, Last Live Update: {(x.metadata.get('last_updated'))} PT"
         for x in results
     ])
     
