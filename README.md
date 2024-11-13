@@ -30,6 +30,7 @@ I refined responses by embedding contextual information around user queries. Thi
 ### 5. Response Quality Assessment with DeepEval ✅
 In the final stage, **DeepEval** is used to measure response accuracy, relevancy, and detect any factual inaccuracies. Responses are iteratively adjusted to sound more human-like, prioritizing clarity and conversational tone.
 
+
 ---
 
 ## ⚙️ Future Directions
