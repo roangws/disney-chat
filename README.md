@@ -2,7 +2,7 @@
 
 ![Disney Chatbot](https://github.com/roangws/disney-chat/blob/main/chat.png)
 
-Welcome to the **Disney Chatbot**! Interact with live data for Disney and other global theme park attractions! 🌍
+Welcome to the **Disney Chatbot**! Interact with live data for Disney and other global theme park attractions!  🌍
 
 ---
 
